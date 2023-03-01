@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: $PROJECT_NAME
+  name: gost-new
+  labels:
+    app: gost-new
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gost-new
+  template:
+    metadata:
+      labels:
+        app: gost-new
+    spec:
+      containers:
+      - name: go
+        image: $REGISTRY/$PROJECT_NAME/$APP_NAME
